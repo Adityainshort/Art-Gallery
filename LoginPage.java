@@ -92,7 +92,7 @@ class NewUser{
         f6.setBounds(250,260,250,30);
 
         J1 = new JButton("Register");
-        J1.setBounds(450, 320, 80, 30);
+        J1.setBounds(400, 320, 100, 30);
         J2 = new JButton("Back");
         J2.setBounds(70, 320, 70, 30);
         J3 = new JButton("HOME");
