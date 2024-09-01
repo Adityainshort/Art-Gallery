@@ -12,7 +12,7 @@ public class LoginPage {
         newUser = new JButton("New User");
         newUser.setFocusable(false);
         newUser.setBounds(180,100,220,30);
-        newUser.addActionListener(e -> new NewUser());
+        newUser.addActionListener(e -> new NewUser()) ;
         newUser.setBackground(Color.DARK_GRAY);
         newUser.setForeground(Color.WHITE);
 
@@ -36,7 +36,6 @@ public class LoginPage {
         backButton.setBackground(Color.DARK_GRAY);
         backButton.setForeground(Color.WHITE);
 
-
         frame1 = new JFrame("Login");
         frame1.setLayout(null);
         frame1.setVisible(true);
@@ -48,7 +47,6 @@ public class LoginPage {
         frame1.add(newUser);
         frame1.add(existingUser);
         frame1.add(backButton);
-
     }
 }
 class NewUser{
@@ -80,9 +78,9 @@ class NewUser{
             @Override
             public void actionPerformed(ActionEvent e) {
 //                Connect JDBC code here
+                frame.dispose();
             }
         });
-        submitButton.addActionListener(e -> new NewUser());
         submitButton.setBackground(Color.DARK_GRAY);
         submitButton.setForeground(Color.WHITE);
 
@@ -145,38 +143,17 @@ class NewUser{
             submitButton= new JButton("Submit");
             submitButton.setFocusable(false);
             submitButton.setBounds(180,250,220,30);
-            submitButton.addActionListener(e -> new NewUser());
+//            submitButton.addActionListener(e -> new NewUser());
 
             submitButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-//                    add JDBC data here
+                    if(f1.getText().isEmpty()||f2.getText().isEmpty()){
+                        frame2.dispose();
 
-                    try{
-
-                        int n=0;
-                        while(rs.next()){
-                            String name= rs.getString("UserName");
-                            int id = sr.getInt("UderId");
-
-
-                            if(f1.getText().equals(name)  && f2.getText().equals(id)){
-                                n=1;
-                                break;
-                            }else{
-                                n=0;
-                            }
-                        }
-
-                        if(n==1){
-                            frame2.dispose();
-                        }else{
-                            
-                        }
-
-                    }catch (Exception a){
-                        System.out.println("Error in finding.");
                     }
+
+                    frame2.dispose();
                 }
             });
             submitButton.setBackground(Color.DARK_GRAY);
@@ -188,6 +165,7 @@ class NewUser{
             backButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+
                     frame2.dispose();
                     new LoginPage();
                 }
@@ -212,5 +190,9 @@ class NewUser{
             frame2.setLocationRelativeTo(null);
             frame2.setResizable(false);
 
-
 }}
+
+
+class iderror{
+
+}

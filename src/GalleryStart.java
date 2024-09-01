@@ -16,8 +16,6 @@ public class GalleryStart {
     JButton bs3 = new JButton();
 
 
-
-
         JLabel l1= new JLabel("Artist: "+name);
         JLabel l2=new JLabel("Title: "+title);
         JLabel l3=new JLabel("Date created: "+date);
